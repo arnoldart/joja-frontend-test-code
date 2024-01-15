@@ -16,9 +16,26 @@ export const useSearch = (endpoint: string) => {
     error,
     isLoading,
   }
-
 }
 
-export const useDetail = () => {
-  
+export const useDetail = (id: string) => {
+  const url = `${API_URL}/?apikey=${API_KEY}&i=${id}`
+  const { data, error, isLoading } = useSWR(url, fetcher)
+
+  return {
+    data,
+    error,
+    isLoading,
+  }
+}
+
+export const useAPIByType = (type: string) => {
+  const url = `${API_URL}/?apikey=${API_KEY}&type=${type}`
+  const { data, error, isLoading } = useSWR(url, fetcher)
+
+  return {
+    data,
+    error,
+    isLoading,
+  }
 }

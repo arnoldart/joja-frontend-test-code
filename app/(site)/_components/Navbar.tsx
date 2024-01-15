@@ -21,7 +21,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex items-center justify-between py-5 px-10">
+    <div className="flex items-center justify-between py-5">
       <div className="flex gap-5 items-center">
         <Link href={'/'} className="text-2xl font-bold text-red-500">
           Flix Galaxy
@@ -55,7 +55,7 @@ const Navbar = () => {
           <div className="absolute top-10 left-0 w-full bg-gray-800 bg-opacity-90 p-4 rounded-md flex flex-col">
             {data?.Search?.map((result:LiveSearchProps, index:number) => {
               return (
-                <Link href={`slug/${result.imdbID}`} key={index} className={`pb-${index === data?.Search.length - 1 ? 0 : 4}`}>
+                <Link href={`/Detail/${result.imdbID}`} key={index} className={`pb-${index === data?.Search.length - 1 ? 0 : 4}`}>
                   <p className="text-sm">{result.Title}</p>
                 </Link>
               )

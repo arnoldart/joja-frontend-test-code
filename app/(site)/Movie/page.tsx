@@ -1,7 +1,11 @@
+import { useAPIByType } from "@/utils/api"
+
 const Movie = () => {
+  // const { data, error, isLoading } = useAPIByType('movie')
+
   return (
     <div>
-      test
+      {/* {data} */}
     </div>
   )
 }

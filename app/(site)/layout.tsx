@@ -15,7 +15,8 @@ export default function HomeLayout({
   children: React.ReactNode
 }) {
   return (
-    <div>
+    <div className='max-w-screen-2xl w-full mx-auto'>
+      <Navbar />
       <div>
         {children}
       </div>

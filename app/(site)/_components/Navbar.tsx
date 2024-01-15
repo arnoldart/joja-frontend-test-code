@@ -1,5 +1,6 @@
 'use client'
 import { useSearchContext } from "@/context/SearchProvider";
+import { FaSearch } from "react-icons/fa";
 
 const Navbar = () => {
   const { searchQuery, setSearchQuery } = useSearchContext();
@@ -9,21 +10,27 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex justify-between py-5 px-10">
+    <div className="flex items-center justify-between py-5 px-10">
       <div className="flex gap-5">
         <p>Flix Galaxy</p>
-        <p>K-Drama</p>
         <p>Movie</p>
-        <p>Anime</p>
+        <p>Episode</p>
+        <p>Series</p>
       </div>
       <div>
         <form>
-          <input
-            type="text"
-            placeholder="Search..."
-            value={searchQuery}
-            onChange={handleSearchChange}
-          />
+          <div className="bg-gray-300 bg-opacity-10 px-3 py-1 rounded flex items-center">
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchQuery}
+              onChange={handleSearchChange}
+              className="bg-transparent	outline-none text-white"
+            />
+            <div className="border-l-2 border-gray-300 border-opacity-30 pl-3">
+              <FaSearch className="text-white" />
+            </div>
+          </div>
         </form>
       </div>
     </div>

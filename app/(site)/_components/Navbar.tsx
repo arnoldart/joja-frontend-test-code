@@ -51,7 +51,7 @@ const Navbar = () => {
   }, [setSearchQuery]);
 
   return (
-    <div className="flex items-center justify-between py-6 max-w-screen-2xl w-full mx-auto xl:px-5 px-7">
+    <div className="flex items-center justify-between md:py-6 py-2 max-w-screen-2xl w-full mx-auto xl:px-5 px-7">
       <Link href={"/"} className={`text-2xl font-bold text-red-500 ${searchActive ? 'hidden' : 'block'}`}>
         Flix
       </Link>

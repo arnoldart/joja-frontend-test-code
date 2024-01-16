@@ -16,6 +16,29 @@
   }
 }
 
+::-webkit-scrollbar {
+  height: 1px;
+  width: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(239 68 68); 
+  border-radius: 6px; 
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent; 
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background-color: rgb(239 68 68); 
+  border-radius: 6px; 
+}
+
+::-webkit-scrollbar-track:vertical {
+  background-color: transparent; 
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -24,5 +47,4 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-    /* background-color: rgb(3, 6, 15); */
 }

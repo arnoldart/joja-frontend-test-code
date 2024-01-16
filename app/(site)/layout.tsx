@@ -20,7 +20,7 @@ export default function HomeLayout({
       <div className='border-b-2 border-red-500 border-opacity-30'>
         <Navbar />
       </div>
-      <div className='md:h-screen h-auto'>
+      <div>
         {children}
       </div>
       <Footer />

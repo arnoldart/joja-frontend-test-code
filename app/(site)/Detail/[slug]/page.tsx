@@ -1,19 +1,22 @@
 "use client"
 import { useDetail } from "@/utils/api"
-import { useParams } from "next/navigation"
+import { usePathname } from "next/navigation"
 import { IoStar } from "react-icons/io5";
 import Image from 'next/image'
 import SkeletonLoading from "../../_components/SkeletonLoading";
+import Result from "../../_components/Result";
 
 const Detail = () => {
-  const router = useParams()
-  const { data, isLoading } = useDetail(router.slug)
+  const router = usePathname()
+  const { data, isLoading } = useDetail(router.split('/')[2])
 
   return (
-    <div className="max-w-screen-2xl w-full mx-auto py-7 xl:px-5 px-7">
+    <div className="max-w-screen-2xl w-full mx-auto md:py-16 py-7 xl:px-5 px-7">
       {isLoading ? (
         <div className="flex md:flex-row flex-col gap-5">
-          <SkeletonLoading className="w-full h-[550px]" />
+          <div className="flex-2">
+            <SkeletonLoading className="md:w-[400px] w-full h-[550px]" />
+          </div>
           <div className="flex-1 flex flex-col gap-4">
             <div className="flex items-center justify-between">
               <SkeletonLoading className="w-full h-10" />
@@ -53,17 +56,19 @@ const Detail = () => {
               />
             </div>
             <div className="flex-1 flex flex-col gap-4">
-              <div className="flex items-center justify-between">
-                <p className="text-5xl font-bold">{data.Title}</p>
-              </div>
-              <div className="flex items-center pt-3">
-                <div className="flex items-center gap-1 pr-3">
-                  <IoStar className="text-yellow-500" />
-                  <p>{data?.Ratings?.length === 0 ? 'N/A' : data?.Ratings[0].Value}</p>
+              <div>
+                <div className="flex items-center justify-between">
+                  <p className="text-5xl font-bold">{data.Title}</p>
                 </div>
-                <p className="border-l-2 border-gray-500 px-3">{data.Rated}</p>
-                <p className="border-l-2 border-gray-500 px-3">{data.Year}</p>
-                <p className="border-l-2 border-gray-500 px-3">{data.Type}</p>
+                <div className="flex items-center pt-2">
+                  <div className="flex items-center gap-1 pr-3">
+                    <IoStar className="text-yellow-500" />
+                    <p>{data?.Ratings?.length === 0 ? 'N/A' : data?.Ratings[0].Value}</p>
+                  </div>
+                  <p className="border-l-2 border-gray-500 px-3">{data.Rated}</p>
+                  <p className="border-l-2 border-gray-500 px-3">{data.Year}</p>
+                  <p className="border-l-2 border-gray-500 px-3">{data.Type}</p>
+                </div>
               </div>
               <div>
                 <p className="pb-2 font-bold">Genre:</p>
@@ -111,6 +116,7 @@ const Detail = () => {
           </div>
         )
       )}
+      <Result type={router.split('/')[1].toLowerCase()} />
     </div>
   )
 }

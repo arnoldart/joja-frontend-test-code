@@ -36,7 +36,7 @@ export default function Result({ slug, type, showPagination = true }: ResultProp
   };
 
   return (
-     <div className={`max-w-screen-2xl w-full mx-auto relative px-5 ${type !== 'detail' && "md:h-screen h-auto" }`}>
+     <div className={`max-w-screen-2xl w-full mx-auto relative ${type !== 'detail' && "md:h-screen h-auto px-5" }`}>
       {
         type === 'detail' ?
         (

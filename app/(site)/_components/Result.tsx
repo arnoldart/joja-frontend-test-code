@@ -36,7 +36,7 @@ export default function Result({ slug, type, showPagination = true }: ResultProp
   };
 
   return (
-     <div className={`max-w-screen-2xl w-full mx-auto relative px-5 ${type !== 'detail' && "h-screen" }`}>
+     <div className={`max-w-screen-2xl w-full mx-auto relative px-5 ${type !== 'detail' && "md:h-screen h-auto" }`}>
       {
         type === 'detail' ?
         (
@@ -79,7 +79,7 @@ export default function Result({ slug, type, showPagination = true }: ResultProp
           </>
 
         ) : (
-          <div className="w-full max-w-[99%] mx-auto">
+          <div className="w-full max-w-[99%] mx-auto py-7 md:py-16">
             <div className="flex flex-wrap gap-12 md:justify-start justify-center ">
             {isLoading ? (
               <div className="flex flex-wrap gap-5 md:justify-between justify-center">
@@ -90,7 +90,7 @@ export default function Result({ slug, type, showPagination = true }: ResultProp
             ) : (
               <>
                 {data?.Search?.map((item: SearchResultType, index: number) => (
-                  <Link href={`/Detail/${item.imdbID}`} key={index} className="w-[16rem] cursor-pointer overflow-hidden relative md:pt-5 pt-0">
+                  <Link href={`/Detail/${item.imdbID}`} key={index} className="w-[16rem] cursor-pointer overflow-hidden relative">
                     <div className="relative rounded-md h-[20rem] overflow-hidden group">
                       <Image
                         src={item.Poster === 'N/A' ? '/img/no-image.png' : item.Poster}

@@ -7,8 +7,8 @@ const API_KEY = '71d58ec2'
 
 const fetcher = (url:string) => fetch(url).then(r => r.json())
 
-export const useSearch = (endpoint: string) => {
-  const url = `${API_URL}/?apikey=${API_KEY}&s=${endpoint}`
+export const useSearch = (search: string | string[], page?:number) => {
+  const url = `${API_URL}/?apikey=${API_KEY}&s=${search}&page=${page}`
   const { data, error, isLoading } = useSWR(url, fetcher)
 
   return {
@@ -18,8 +18,9 @@ export const useSearch = (endpoint: string) => {
   }
 }
 
-export const useDetail = (id: string) => {
+export const useDetail = (id: string | string[]) => {
   const url = `${API_URL}/?apikey=${API_KEY}&i=${id}`
+  console.log(url)
   const { data, error, isLoading } = useSWR(url, fetcher)
 
   return {

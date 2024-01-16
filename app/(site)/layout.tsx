@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Navbar from './_components/Navbar'
+import Footer from './_components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,11 +16,14 @@ export default function HomeLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className='max-w-screen-2xl px-10 w-full mx-auto'>
-      <Navbar />
-      <div>
+    <div>
+      <div className='border-b-2 border-red-500 border-opacity-30'>
+        <Navbar />
+      </div>
+      <div className='md:h-screen h-auto'>
         {children}
       </div>
+      <Footer />
     </div>
   )
 }
